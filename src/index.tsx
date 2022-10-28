@@ -3,27 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Timer } from './Timer';
-import { Notifications } from './Notifications';
 
-//reactDOM1
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-
-//REACTDOM 2
-const sample = ReactDOM.createRoot(
-  document.getElementById('sample') as HTMLElement
-);
-
-//reactDOM 3
-const notify = ReactDOM.createRoot(
-  document.getElementById('notifications') as HTMLElement
-);
-
-setInterval(()=>sample.render(<Timer/>),1000);
-setInterval(()=>notify.render(<Notifications/>), 5000);
-
 root.render(
   <React.StrictMode>
     <App />
