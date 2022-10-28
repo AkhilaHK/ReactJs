@@ -5,6 +5,12 @@ img{
 .App {
   text-align: center;
 }
+.border{
+  border-style: solid;
+  border-width: 2px;
+  border-color: darkslategray;
+  padding: 5px
+}
 
 .movie{
   width: 300px;

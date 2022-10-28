@@ -5,6 +5,8 @@ import ColorComponent from './StyleBinding';
 import { Toast } from './UsingClass';
 import Movie from './Movie';
 import { Login, OkToast,ErrorToast } from './LoginWithStates';
+import { WithHttp } from './simpleHttp';
+import {Navigate, Routes, Route, Router, BrowserRouter, NavLink,useLocation,useParams} from 'react-router-dom'
 
 
 let C1 = () => {return (<h2>A sub-heading created in component c1</h2>)}
@@ -25,25 +27,29 @@ let C4 = () => {return(
 // since the function returns html, hence it can be accessed as <App/> inside index.tsx
 function App() {
   return (
-    <>
-    <Toast/>
-    <C3/>
-    <h1>Hello React!!!</h1>
-    <hr/>
-    <Login/>
-    <hr/>
-    <C1/>
-    <hr/>
-    <C2/>
-    
-    <C4/>
-    <hr/>
-    <ColorComponent/>
-    <hr/>
-    <Movie movieName='Kanthara' rating='5' dp='Kanthara.jpg'/>
-    <Movie movieName='Bramhastra' rating='4' dp='rr.jpg'/>
-    <Movie movieName='KGF' rating='4.5' dp='KGF.jpg'/>
-    </>
+    <div>
+      <BrowserRouter>
+      <div>
+        <NavLink to='/login'>Login</NavLink>
+        <span> | </span>
+        <NavLink to='/movie'>Movies</NavLink>
+        <span> | </span>
+        <NavLink to='/http'>Web Api Communication</NavLink>
+        <span> | </span>
+      </div>
+      {/* to add configs use the <Routes></Routes> */}
+
+      
+      <Routes>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/movie' element={<><Movie movieName='Kanthara' rating='5' dp='Kanthara.jpg'/>
+                                      <Movie movieName='Bramhastra' rating='4' dp='rr.jpg'/>
+                                       <Movie movieName='KGF' rating='4.5' dp='KGF.jpg'/></>}
+    />
+       <Route path='/http' element={<WithHttp/>}/>
+      </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
   
